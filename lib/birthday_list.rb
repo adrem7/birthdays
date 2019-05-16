@@ -1,4 +1,5 @@
 require 'birthday'
+require 'date'
 
 class BirthdayList
 attr_reader :stored_birthdays
@@ -8,8 +9,8 @@ attr_reader :stored_birthdays
   end
 
   def store_birthday(name, birthdate)
-    @stored_birthdays = @stored_birthdays.push(name)
-    @stored_birthdays = @stored_birthdays.push(birthdate)
+    @stored_birthdays.push(name)
+    @stored_birthdays.push(birthdate)
   end
 
   def print_birthday_list
@@ -20,8 +21,6 @@ attr_reader :stored_birthdays
     end
   end
 
-  require 'date'
-
   def birthday_reminder
     n = 1
     birthdays_today =[]
@@ -31,17 +30,9 @@ attr_reader :stored_birthdays
       n += 2
     end
 
-    # name_output = birthdays_today.last
-    # age_output = Date.today.year - @stored_birthdays[@stored_birthdays.index(name_output) + 1].to_s.split('').first(4).join.to_i
-    #
-    # print "It's #{name_output}\'s birthday today? They are #{age_output} years old!"
-
     birthdays_today.each { |name|
       age_output = Date.today.year - @stored_birthdays[@stored_birthdays.index(name) + 1].to_s.split('').first(4).join.to_i
       print "It's #{name}\'s birthday today! They are #{age_output} years old!\n"
     }
   end
 end
-
-# require 'date'
-# print Date.today.to_s.scan(/(?<=-)\d+/).join

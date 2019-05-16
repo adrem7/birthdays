@@ -16,6 +16,9 @@ describe "BirthdayList" do
     expect(birthday_list).to respond_to(:store_birthday)
   end
 
+# Commented out these tests as later tests supercede them.
+# Keeping tests as comments as like to refer back 
+
   # it 'stores a birthday' do
   #   birthday_to_add = 20000101
   #   stored_birthdays = birthday_list.store_birthday(birthday_to_add)
@@ -173,6 +176,9 @@ describe "BirthdayList" do
 
     expect{ birthday_list.birthday_reminder }.to output("It's SamM's birthday today! They are 14 years old!\n").to_stdout
   end
+
+# how to make sure tests are robust over time - if I ran this test later it wouldn't work?!?!
+# Running these tests today won't work as the test is hard coded for yesterday's date...
 
   it 'should print multiple birthday messages if more than one person has a birthday today' do
     new_birthday1 = Birthday.new( "SamJ", 19900101)
